@@ -1,0 +1,22 @@
+plugins {
+    id("org.springframework.boot")
+}
+
+dependencies {
+    compile(project(":protocol"))
+    compile("org.springframework.boot:spring-boot-starter")
+    compile("io.netty:netty-all")
+    compile("com.fasterxml.jackson.core:jackson-databind")
+
+    compileOnly("org.projectlombok:lombok")
+    compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testCompile("org.assertj:assertj-core")
+
+    testRuntime("org.junit.jupiter:junit-jupiter-engine")
+}
+
+bootRun {
+    systemProperties = System.properties
+}

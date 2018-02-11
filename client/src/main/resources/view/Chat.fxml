@@ -1,0 +1,36 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:id="root"
+      fx:controller="com.indev.p2pmessenger.client.controller.ChatController"
+      minHeight="400">
+    <stylesheets>
+        <URL value="@/main.css"/>
+    </stylesheets>
+
+    <HBox fx:id="loginPane">
+        <Text text="Log in as: "/>
+        <TextField fx:id="loginTextField"/>
+        <Button fx:id="loginButton" disable="true" text="Log in" onAction="#login"/>
+    </HBox>
+
+    <Label fx:id="userInfoLabel"/>
+
+    <HBox prefHeight="${root.height}">
+        <ListView fx:id="contacts"/>
+
+        <VBox fx:id="chatBox" visible="false">
+            <Label fx:id="chatLabel" text="Chat with ASD"/>
+            <ScrollPane prefHeight="${chatBox.height}" prefWidth="${chatBox.width}">
+                <VBox fx:id="messagesBox" prefWidth="${chatBox.width}"/>
+            </ScrollPane>
+            <TextArea fx:id="messageTextArea" style="-fx-padding: 3 0; height: 100px;">
+            </TextArea>
+            <HBox alignment="CENTER_RIGHT" style="-fx-padding: 3 0">
+                <Button fx:id="sendButton" text="Send" onAction="#sendMessage"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+</VBox>
